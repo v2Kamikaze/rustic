@@ -18,14 +18,30 @@ export type ButtonVariant =
   | 'ghost'
   | 'link';
 
-export type ButtonProps = Omit<TouchableOpacityProps, 'children'> &
-  ViewStyle & {
-    variant?: ButtonVariant;
-    title?: string;
-    loading?: boolean;
-    icon?: LucideIcon;
-  };
+export type ButtonConfig = {
+  variant?: ButtonVariant;
+  title?: string;
+  loading?: boolean;
+  icon?: LucideIcon;
+  onPress?: () => void;
+};
 
+type RNTouchableOpacityProps = Omit<TouchableOpacityProps, 'children'>;
+
+export type ButtonProps = RNTouchableOpacityProps & ViewStyle & ButtonConfig;
+
+/**
+ * `Button` is a customizable button component that supports different variants, icons, and loading states.
+ *
+ * ## Usage
+ * ```tsx
+ * <Button title="Click me" onPress={() => console.log('Pressed')} />
+ *
+ * <Button variant="destructive" title="Delete" onPress={() => console.log('Deleted')} />
+ *
+ * <Button loading title="Loading..." />
+ * ```
+ */
 export const Button: React.FC<ButtonProps> = ({
   variant = 'default',
   title = '',

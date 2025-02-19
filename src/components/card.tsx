@@ -4,6 +4,28 @@ import {createStyleSheet, useStyles} from 'react-native-unistyles';
 
 export type CardProps = ViewProps & ViewStyle;
 
+/**
+ * `Card` is a flexible container component with a styled border, background, and shadow effect.
+ * It can be used to wrap other components, providing a visually distinct card-like appearance.
+ *
+ * ## Usage
+ * ```tsx
+ * <Card gap={16}>
+ *   <Typography variant="title">Título do card</Typography>
+ *
+ *   <Typography variant="body">
+ *     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga dolores
+ *     repellendus sequi, enim veniam quo, nisi ut quos quisquam sunt
+ *     doloribus modi inventore quia. Rerum ipsa neque ex dolores eos.
+ *   </Typography>
+ *
+ *   <Box flexDirection="row" width="100%" gap={8}>
+ *     <TextField placeholder="Digite seu nome" />
+ *     <Button title="Default" flex={1} />
+ *   </Box>
+ * </Card>
+ * ```
+ */
 export const Card: React.FC<CardProps> = ({style, children, ...props}) => {
   const {styles} = useStyles(stylesheet);
 
@@ -14,6 +36,7 @@ const stylesheet = createStyleSheet(theme => ({
   card: {
     borderRadius: theme.radius.lg,
     borderWidth: 1,
+    padding: theme.spacings.md,
     borderColor: theme.colors.border,
     backgroundColor: theme.colors.card,
 

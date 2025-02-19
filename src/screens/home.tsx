@@ -10,7 +10,14 @@ import {
   Dialog,
 } from '../components';
 import {StatusBar} from 'react-native';
-import {ChevronRight, Link, Mail, PersonStanding} from 'lucide-react-native';
+import {
+  ChevronRight,
+  Link,
+  Mail,
+  PersonStanding,
+  Ban,
+  MailCheck,
+} from 'lucide-react-native';
 
 export const Home: React.FC = () => {
   const [openDialog, setOpenDialog] = React.useState(false);
@@ -28,11 +35,13 @@ export const Home: React.FC = () => {
             title: 'Confirmar',
             variant: 'default',
             onPress: () => setOpenDialog(false),
+            icon: MailCheck,
           },
           {
             title: 'Cancelar',
             variant: 'destructive',
             onPress: () => setOpenDialog(false),
+            icon: Ban,
           },
         ]}
       />
@@ -41,7 +50,7 @@ export const Home: React.FC = () => {
         Design system
       </Typography>
 
-      <Card marginBottom={16} padding={16} gap={16}>
+      <Card marginBottom={16} gap={16}>
         <Typography variant="title">Título do card</Typography>
 
         <Typography variant="body">
@@ -60,7 +69,7 @@ export const Home: React.FC = () => {
         <Button title="Abrir dialog" onPress={() => setOpenDialog(true)} />
       </Card>
 
-      <Card marginBottom={16} padding={16} gap={16}>
+      <Card marginBottom={16} gap={16}>
         <Typography variant="title">Título do card</Typography>
 
         <Typography variant="body">
@@ -75,7 +84,7 @@ export const Home: React.FC = () => {
         </Box>
       </Card>
 
-      <Card gap={16} padding={16} marginBottom={32}>
+      <Card gap={16} marginBottom={32}>
         <Typography variant="title">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </Typography>
@@ -93,7 +102,7 @@ export const Home: React.FC = () => {
         </Typography>
       </Card>
 
-      <Card gap={16} padding={16} marginBottom={16}>
+      <Card gap={16} marginBottom={16}>
         <Typography variant="title">Estado normal</Typography>
         <Button title="Default" variant="default" />
         <Button title="Destructive" variant="destructive" />
@@ -103,7 +112,7 @@ export const Home: React.FC = () => {
         <Button title="Link" variant="link" />
       </Card>
 
-      <Card gap={16} padding={16} marginBottom={16}>
+      <Card gap={16} marginBottom={16}>
         <Typography variant="title">Estado de loading</Typography>
         <Button title="Default" variant="default" loading />
         <Button title="Destructive" variant="destructive" loading />
@@ -113,7 +122,7 @@ export const Home: React.FC = () => {
         <Button title="Link" variant="link" loading />
       </Card>
 
-      <Card gap={16} padding={16} marginBottom={16}>
+      <Card gap={16} marginBottom={16}>
         <Typography variant="title">Icon</Typography>
         <Box
           flexDirection="row"
@@ -130,7 +139,7 @@ export const Home: React.FC = () => {
         </Box>
       </Card>
 
-      <Card gap={16} padding={16}>
+      <Card gap={16}>
         <Box gap={8}>
           <Typography variant="label">Email:</Typography>
           <TextField icon={PersonStanding} placeholder="Digite seu email" />

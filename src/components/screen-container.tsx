@@ -33,6 +33,26 @@ type ScreenContainer = {
 
 const behavior = Platform.OS === 'ios' ? 'padding' : undefined;
 
+/**
+ * `ScreenContainer` is a component that provides a basic layout structure for screens, supporting different keyboard behaviors, safe areas, and scrollable layouts.
+ *
+ * ## Usage
+ * This component can be used to wrap the content of a screen and adjust the visible area based on the keyboard (for iOS) and the device's safe areas.
+ *
+ * It accepts the option to be scrollable or not, depending on whether the content requires scrolling.
+ *
+ * ### Examples
+ *
+ * ```tsx
+ * <ScreenContainer>
+ *   <Text>Screen without scrolling</Text>
+ * </ScreenContainer>
+ *
+ * <ScreenContainer scrollable>
+ *   <Text>Screen with scrolling</Text>
+ * </ScreenContainer>
+ * ```
+ */
 export const ScreenContainer: React.FC<ScreenContainer> = ({
   children,
   scrollable = false,

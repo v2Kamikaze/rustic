@@ -9,6 +9,20 @@ export type TypographyProps = TextProps &
     variant?: TypographyVariants;
   };
 
+/**
+ * `Typography` is a customizable text component that supports different typography variants (e.g., title, body, label).
+ *
+ * ## Usage
+ * This component allows you to display text with different styles, such as titles, body text, or labels, by choosing the appropriate variant. The text styling is based on the app’s theme.
+ *
+ * ### Examples
+ *
+ * ```tsx
+ * <Typography variant="title">This is a title</Typography>
+ * <Typography variant="body">This is body text</Typography>
+ * <Typography variant="label">This is a label</Typography>
+ * ```
+ */
 export const Typography: React.FC<TypographyProps> = ({
   variant = 'body',
   style,
