@@ -10,7 +10,7 @@ import {createStyleSheet, useStyles} from 'react-native-unistyles';
 import {useAppTheme} from '../hooks';
 import {LucideIcon} from 'lucide-react-native';
 
-type ButtonVariant =
+export type ButtonVariant =
   | 'default'
   | 'destructive'
   | 'outline'

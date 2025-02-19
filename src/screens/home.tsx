@@ -7,14 +7,35 @@ import {
   TextField,
   Card,
   Switch,
+  Dialog,
 } from '../components';
 import {StatusBar} from 'react-native';
-import {ChevronRight, Link} from 'lucide-react-native';
+import {ChevronRight, Link, Mail, PersonStanding} from 'lucide-react-native';
 
 export const Home: React.FC = () => {
+  const [openDialog, setOpenDialog] = React.useState(false);
+
   return (
     <ScreenContainer scrollable>
       <StatusBar />
+
+      <Dialog
+        title="Título do dialog"
+        message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae suscipit ipsum dolorem perspiciatis veniam dicta, facilis quod sequi quisquam delectus nisi dolores officiis sint harum, dolor, cum nam iste iusto."
+        visible={openDialog}
+        actions={[
+          {
+            title: 'Confirmar',
+            variant: 'default',
+            onPress: () => setOpenDialog(false),
+          },
+          {
+            title: 'Cancelar',
+            variant: 'destructive',
+            onPress: () => setOpenDialog(false),
+          },
+        ]}
+      />
 
       <Typography variant="title" marginBottom={16}>
         Design system
@@ -36,7 +57,7 @@ export const Home: React.FC = () => {
           <Switch value={false} disabled />
         </Box>
 
-        <Button title="Default" />
+        <Button title="Abrir dialog" onPress={() => setOpenDialog(true)} />
       </Card>
 
       <Card marginBottom={16} padding={16} gap={16}>
@@ -49,7 +70,7 @@ export const Home: React.FC = () => {
         </Typography>
 
         <Box flexDirection="row" width="100%" gap={8}>
-          <TextField variant="normal" placeholder="Digite seu nome" />
+          <TextField placeholder="Digite seu nome" />
           <Button title="Default" flex={1} />
         </Box>
       </Card>
@@ -112,15 +133,12 @@ export const Home: React.FC = () => {
       <Card gap={16} padding={16}>
         <Box gap={8}>
           <Typography variant="label">Email:</Typography>
-          <TextField
-            placeholder="Digite seu email"
-            errorMessage="O email deve ser válido"
-          />
+          <TextField icon={PersonStanding} placeholder="Digite seu email" />
         </Box>
 
         <Box gap={8}>
           <Typography variant="label">Nome:</Typography>
-          <TextField variant="normal" placeholder="Digite seu nome" />
+          <TextField icon={Mail} placeholder="Digite seu nome" />
         </Box>
 
         <Box

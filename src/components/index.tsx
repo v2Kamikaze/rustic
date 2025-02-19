@@ -5,3 +5,4 @@ export * from './box';
 export * from './text-field';
 export * from './card';
 export * from './switch';
+export * from './dialog';

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TextProps, TextStyle} from 'react-native';
 import {createStyleSheet, useStyles} from 'react-native-unistyles';
 
-type TypographyVariants = 'title' | 'body' | 'label';
+type TypographyVariants = 'title' | 'body' | 'label' | 'dialogTitle';
 
 export type TypographyProps = TextProps &
   TextStyle & {
@@ -31,6 +31,11 @@ const stylesheet = createStyleSheet(theme => ({
   },
   label: {
     fontSize: 14,
+    fontWeight: 'bold',
+    color: theme.colors.foreground,
+  },
+  dialogTitle: {
+    fontSize: 28,
     fontWeight: 'bold',
     color: theme.colors.foreground,
   },
