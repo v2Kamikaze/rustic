@@ -17,7 +17,49 @@ import {
   PersonStanding,
   Ban,
   MailCheck,
+  MailPlus,
 } from 'lucide-react-native';
+import {UnistylesRuntime} from 'react-native-unistyles';
+import {zinc} from '../theme/zinc';
+import {blue} from '../theme/blue';
+import {green} from '../theme/green';
+import {orange} from '../theme/orange';
+import {red} from '../theme/red';
+import {rose} from '../theme/rose';
+import {violet} from '../theme/violet';
+import {yellow} from '../theme/yellow';
+
+type Palettes =
+  | 'zinc'
+  | 'blue'
+  | 'green'
+  | 'orange'
+  | 'red'
+  | 'rose'
+  | 'violet'
+  | 'yellow';
+
+const palettes: Record<Palettes, any> = {
+  zinc: zinc,
+  blue: blue,
+  green: green,
+  orange: orange,
+  red: red,
+  rose: rose,
+  violet: violet,
+  yellow: yellow,
+};
+
+function changeTheme(theme: Palettes) {
+  const name = UnistylesRuntime.themeName;
+
+  UnistylesRuntime.updateTheme(name, currentTheme => ({
+    ...currentTheme,
+    colors: {
+      ...palettes[theme][name],
+    },
+  }));
+}
 
 export const Home: React.FC = () => {
   const [openDialog, setOpenDialog] = React.useState(false);
@@ -50,6 +92,18 @@ export const Home: React.FC = () => {
         Design system
       </Typography>
 
+      <Card gap={16} marginBottom={16}>
+        <Typography variant="title">Cores</Typography>
+        <Button title="zinc" onPress={() => changeTheme('zinc')} />
+        <Button title="blue" onPress={() => changeTheme('blue')} />
+        <Button title="green" onPress={() => changeTheme('green')} />
+        <Button title="orange" onPress={() => changeTheme('orange')} />
+        <Button title="red" onPress={() => changeTheme('red')} />
+        <Button title="rose" onPress={() => changeTheme('rose')} />
+        <Button title="violet" onPress={() => changeTheme('violet')} />
+        <Button title="yellow" onPress={() => changeTheme('yellow')} />
+      </Card>
+
       <Card marginBottom={16} gap={16}>
         <Typography variant="title">Título do card</Typography>
 
@@ -79,8 +133,12 @@ export const Home: React.FC = () => {
         </Typography>
 
         <Box flexDirection="row" width="100%" gap={8}>
-          <TextField placeholder="Digite seu nome" />
-          <Button title="Default" flex={1} />
+          <TextField placeholder="Digite seu melhor email" />
+          <Button
+            icon={MailPlus}
+            title="Enviar"
+            onPress={() => UnistylesRuntime.setTheme('dark')}
+          />
         </Box>
       </Card>
 

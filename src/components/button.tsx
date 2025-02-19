@@ -60,7 +60,7 @@ export const Button: React.FC<ButtonProps> = ({
     outline: theme.colors.primary,
     secondary: theme.colors.secondaryForeground,
     ghost: theme.colors.primary,
-    link: theme.colors.primary,
+    link: theme.colors.foreground,
   };
 
   return (
@@ -147,7 +147,7 @@ const textStylesheet = createStyleSheet(theme => ({
   link: {
     fontSize: 16,
     fontWeight: 'medium',
-    color: theme.colors.primary,
+    color: theme.colors.foreground,
     textDecorationLine: 'underline',
   },
 }));

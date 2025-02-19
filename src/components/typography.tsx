@@ -41,7 +41,7 @@ const stylesheet = createStyleSheet(theme => ({
   },
   body: {
     fontSize: 16,
-    color: theme.colors.mutedForeground,
+    color: theme.colors.foreground,
   },
   label: {
     fontSize: 14,
