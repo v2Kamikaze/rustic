@@ -73,7 +73,9 @@ export const Button: React.FC<ButtonProps> = ({
       ) : (
         <>
           {Icon && <Icon size={20} color={colorMap[variant]} />}
-          {title && <Text style={[textStyles[variant]]}>{title}</Text>}
+          {title && (
+            <Text style={[textStyles.base, textStyles[variant]]}>{title}</Text>
+          )}
         </>
       )}
     </TouchableOpacity>
@@ -88,65 +90,52 @@ const buttonStylesheet = createStyleSheet(theme => ({
     alignItems: 'center',
     padding: theme.spacings.md,
     borderRadius: theme.radius.md,
+    gap: theme.spacings.md,
   },
   default: {
-    gap: theme.spacings.md,
     backgroundColor: theme.colors.primary,
   },
   destructive: {
-    gap: theme.spacings.md,
     backgroundColor: theme.colors.destructive,
   },
   outline: {
-    gap: theme.spacings.md,
     borderWidth: 1,
     borderColor: theme.colors.input,
     backgroundColor: theme.colors.background,
   },
   secondary: {
-    gap: theme.spacings.md,
     backgroundColor: theme.colors.secondary,
   },
   ghost: {
-    gap: theme.spacings.md,
     backgroundColor: 'transparent',
   },
   link: {
     padding: 0,
-    gap: theme.spacings.md,
     backgroundColor: 'transparent',
   },
 }));
 
 const textStylesheet = createStyleSheet(theme => ({
-  default: {
+  base: {
     fontSize: 16,
     fontWeight: 'medium',
+  },
+  default: {
     color: theme.colors.primaryForeground,
   },
   destructive: {
-    fontSize: 16,
-    fontWeight: 'medium',
     color: theme.colors.destructiveForeground,
   },
   outline: {
-    fontSize: 16,
-    fontWeight: 'medium',
     color: theme.colors.primary,
   },
   secondary: {
-    fontSize: 16,
-    fontWeight: 'medium',
     color: theme.colors.secondaryForeground,
   },
   ghost: {
-    fontSize: 16,
-    fontWeight: 'medium',
     color: theme.colors.primary,
   },
   link: {
-    fontSize: 16,
-    fontWeight: 'medium',
     color: theme.colors.foreground,
     textDecorationLine: 'underline',
   },

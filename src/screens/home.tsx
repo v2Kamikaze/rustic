@@ -93,6 +93,18 @@ export const Home: React.FC = () => {
       </Typography>
 
       <Card gap={16} marginBottom={16}>
+        <Typography variant="title">Hello rafael</Typography>
+        <Typography>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+          inventore non cupiditate praesentium doloremque nam, maiores itaque
+          unde fuga animi natus, officia nisi ratione eveniet asperiores quaerat
+          laborum exercitationem accusamus.
+        </Typography>
+
+        <Button icon={Mail} variant="default" title="clique aqui" />
+      </Card>
+
+      <Card gap={16} marginBottom={16}>
         <Typography variant="title">Cores</Typography>
         <Button title="zinc" onPress={() => changeTheme('zinc')} />
         <Button title="blue" onPress={() => changeTheme('blue')} />
