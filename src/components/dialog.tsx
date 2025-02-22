@@ -57,7 +57,7 @@ export const Dialog: React.FC<DialogProps> = ({
         backgroundColor="#000000CC">
         <Card alignSelf="stretch">
           <Box gap={16}>
-            <Typography variant="dialogTitle">{title}</Typography>
+            <Typography variant="subtitle">{title}</Typography>
             {message && <Typography variant="body">{message}</Typography>}
 
             <Box flexDirection="row" gap={16}>

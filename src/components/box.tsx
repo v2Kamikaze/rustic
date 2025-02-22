@@ -1,7 +1,13 @@
 import React from 'react';
-import {View, ViewProps, ViewStyle} from 'react-native';
+import {
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
+  ViewProps,
+  ViewStyle,
+} from 'react-native';
 
-type BoxProps = ViewProps & ViewStyle;
+export type BoxProps = ViewProps & ViewStyle;
 
 /**
  * `Box` is a flexible container component that extends the native `View` in React Native.
@@ -16,4 +22,18 @@ type BoxProps = ViewProps & ViewStyle;
  */
 export const Box: React.FC<BoxProps> = ({style, children, ...props}) => {
   return <View style={[props, style]}>{children}</View>;
+};
+
+export type TouchableBoxProps = ViewProps & ViewStyle & TouchableOpacityProps;
+
+export const TouchableBox: React.FC<TouchableBoxProps> = ({
+  style,
+  children,
+  ...props
+}) => {
+  return (
+    <TouchableOpacity style={[props, style]} {...props}>
+      {children}
+    </TouchableOpacity>
+  );
 };

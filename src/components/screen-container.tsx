@@ -65,7 +65,12 @@ export const ScreenContainer: React.FC<ScreenContainer> = ({
   return (
     <KeyboardAvoidingView behavior={behavior} style={styles.container}>
       <Container style={styles.container}>
-        <View style={[{paddingTop: top, paddingBottom: bottom}, styles.page]}>
+        <View
+          style={[
+            {paddingTop: top, paddingBottom: bottom},
+            styles.page,
+            styles.container,
+          ]}>
           {children}
         </View>
       </Container>
