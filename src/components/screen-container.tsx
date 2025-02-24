@@ -26,7 +26,7 @@ const ViewContainer: React.FC<ContainerProps> = ({children, style}) => {
   return <View style={style}>{children}</View>;
 };
 
-type ScreenContainer = {
+type ScreenContainer = ViewStyle & {
   scrollable?: boolean;
   children?: React.ReactNode;
 };
@@ -56,8 +56,9 @@ const behavior = Platform.OS === 'ios' ? 'padding' : undefined;
 export const ScreenContainer: React.FC<ScreenContainer> = ({
   children,
   scrollable = false,
+  ...rest
 }) => {
-  const {top, bottom} = useAppSafeArea();
+  const {top} = useAppSafeArea();
   const {styles} = useStyles(stylesheet);
 
   const Container = scrollable ? ScrollViewContainer : ViewContainer;
@@ -66,11 +67,7 @@ export const ScreenContainer: React.FC<ScreenContainer> = ({
     <KeyboardAvoidingView behavior={behavior} style={styles.container}>
       <Container style={styles.container}>
         <View
-          style={[
-            {paddingTop: top, paddingBottom: bottom},
-            styles.page,
-            styles.container,
-          ]}>
+          style={[{paddingTop: top}, styles.page, styles.container, {...rest}]}>
           {children}
         </View>
       </Container>

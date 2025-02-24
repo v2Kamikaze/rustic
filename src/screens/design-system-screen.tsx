@@ -7,42 +7,33 @@ import {
   TextField,
   Card,
   Switch,
-  Dialog,
+  Alert,
 } from '../components';
 import {StatusBar} from 'react-native';
-import {
-  ChevronRight,
-  Link,
-  Mail,
-  PersonStanding,
-  Ban,
-  MailCheck,
-  MailPlus,
-} from 'lucide-react-native';
 
 export const DesignSystemScreen: React.FC = () => {
-  const [openDialog, setOpenDialog] = React.useState(false);
+  const [openAlert, setOpenAlert] = React.useState(false);
 
   return (
     <ScreenContainer scrollable>
       <StatusBar />
 
-      <Dialog
-        title="Título do dialog"
+      <Alert
+        title="Título do Alert"
         message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae suscipit ipsum dolorem perspiciatis veniam dicta, facilis quod sequi quisquam delectus nisi dolores officiis sint harum, dolor, cum nam iste iusto."
-        visible={openDialog}
+        visible={openAlert}
         actions={[
           {
             title: 'Confirmar',
             variant: 'default',
-            onPress: () => setOpenDialog(false),
-            icon: MailCheck,
+            onPress: () => setOpenAlert(false),
+            icon: 'MailCheck',
           },
           {
             title: 'Cancelar',
             variant: 'destructive',
-            onPress: () => setOpenDialog(false),
-            icon: Ban,
+            onPress: () => setOpenAlert(false),
+            icon: 'Ban',
           },
         ]}
       />
@@ -60,7 +51,7 @@ export const DesignSystemScreen: React.FC = () => {
           laborum exercitationem accusamus.
         </Typography>
 
-        <Button icon={Mail} variant="default" title="clique aqui" />
+        <Button icon="Mail" variant="default" title="clique aqui" />
       </Card>
 
       <Card marginBottom={16} gap={16}>
@@ -79,7 +70,7 @@ export const DesignSystemScreen: React.FC = () => {
           <Switch value={false} disabled />
         </Box>
 
-        <Button title="Abrir dialog" onPress={() => setOpenDialog(true)} />
+        <Button title="Abrir Alert" onPress={() => setOpenAlert(true)} />
       </Card>
 
       <Card marginBottom={16} gap={16}>
@@ -93,7 +84,7 @@ export const DesignSystemScreen: React.FC = () => {
 
         <Box flexDirection="row" width="100%" gap={8}>
           <TextField placeholder="Digite seu melhor email" />
-          <Button icon={MailPlus} title="Enviar" />
+          <Button icon="MailPlus" title="Enviar" />
         </Box>
       </Card>
 
@@ -143,24 +134,24 @@ export const DesignSystemScreen: React.FC = () => {
           alignItems="flex-start"
           justifyContent="space-between"
           gap={8}>
-          <Button variant="default" icon={ChevronRight} />
-          <Button variant="destructive" icon={ChevronRight} />
-          <Button variant="outline" icon={ChevronRight} />
-          <Button variant="secondary" icon={ChevronRight} />
-          <Button variant="ghost" icon={ChevronRight} />
-          <Button variant="link" title="Acesse o link" icon={Link} />
+          <Button variant="default" icon="ChevronRight" />
+          <Button variant="destructive" icon="ChevronRight" />
+          <Button variant="outline" icon="ChevronRight" />
+          <Button variant="secondary" icon="ChevronRight" />
+          <Button variant="ghost" icon="ChevronRight" />
+          <Button variant="link" title="Acesse o link" icon="Link" />
         </Box>
       </Card>
 
       <Card gap={16}>
         <Box gap={8}>
           <Typography variant="label">Email:</Typography>
-          <TextField icon={PersonStanding} placeholder="Digite seu email" />
+          <TextField icon="PersonStanding" placeholder="Digite seu email" />
         </Box>
 
         <Box gap={8}>
           <Typography variant="label">Nome:</Typography>
-          <TextField icon={Mail} placeholder="Digite seu nome" />
+          <TextField icon="Mail" placeholder="Digite seu nome" />
         </Box>
 
         <Box

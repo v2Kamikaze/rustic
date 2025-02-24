@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {createStyleSheet, useStyles} from 'react-native-unistyles';
 import {useAppTheme} from '../hooks';
-import {LucideIcon} from 'lucide-react-native';
+import {Icon, IconName} from './icon';
 
 export type ButtonVariant =
   | 'default'
@@ -22,7 +22,7 @@ export type ButtonConfig = {
   variant?: ButtonVariant;
   title?: string;
   loading?: boolean;
-  icon?: LucideIcon;
+  icon?: IconName;
   onPress?: () => void;
 };
 
@@ -47,7 +47,7 @@ export const Button: React.FC<ButtonProps> = ({
   title = '',
   loading = false,
   style,
-  icon: Icon,
+  icon,
   ...props
 }) => {
   const {theme} = useAppTheme();
@@ -69,10 +69,10 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={loading}
       {...props}>
       {loading ? (
-        <ActivityIndicator size={20} color={colorMap[variant]} />
+        <ActivityIndicator size={24} color={colorMap[variant]} />
       ) : (
         <>
-          {Icon && <Icon size={20} color={colorMap[variant]} />}
+          {icon && <Icon name={icon} size={24} color={colorMap[variant]} />}
           {title && (
             <Text style={[textStyles.base, textStyles[variant]]}>{title}</Text>
           )}

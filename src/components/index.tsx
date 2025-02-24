@@ -7,3 +7,6 @@ export * from './card';
 export * from './switch';
 export * from './dialog';
 export * from './tab-bar';
+export * from './list';
+export * from './collapsible';
+export * from './icon';

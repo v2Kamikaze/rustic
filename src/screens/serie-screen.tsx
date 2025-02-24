@@ -9,7 +9,6 @@ import {
   TextField,
   Typography,
 } from '../components';
-import {Dumbbell, Repeat, Scale} from 'lucide-react-native';
 import {SeriesFormData, seriesSchema} from '../schemas';
 
 const daysOfWeek = [
@@ -58,7 +57,7 @@ export const SerieScreen: React.FC = () => {
             control={control}
             render={({field}) => (
               <TextField
-                icon={Dumbbell}
+                icon="Dumbbell"
                 placeholder="Ex: Supino reto"
                 value={field.value}
                 onChangeText={field.onChange}
@@ -80,7 +79,7 @@ export const SerieScreen: React.FC = () => {
             control={control}
             render={({field}) => (
               <TextField
-                icon={Repeat}
+                icon="Repeat"
                 placeholder="Ex: 12"
                 keyboardType="numeric"
                 value={field.value}
@@ -103,7 +102,7 @@ export const SerieScreen: React.FC = () => {
             control={control}
             render={({field}) => (
               <TextField
-                icon={Scale}
+                icon="Scale"
                 placeholder="Ex: 40"
                 keyboardType="numeric"
                 value={field.value}

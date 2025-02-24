@@ -2,7 +2,10 @@ import React from 'react';
 import {View, ViewProps, ViewStyle} from 'react-native';
 import {createStyleSheet, useStyles} from 'react-native-unistyles';
 
-export type CardProps = ViewProps & ViewStyle;
+export type CardProps = ViewProps &
+  ViewStyle & {
+    elevated?: boolean;
+  };
 
 /**
  * `Card` is a flexible container component with a styled border, background, and shadow effect.
@@ -26,20 +29,31 @@ export type CardProps = ViewProps & ViewStyle;
  * </Card>
  * ```
  */
-export const Card: React.FC<CardProps> = ({style, children, ...props}) => {
+export const Card: React.FC<CardProps> = ({
+  style,
+  elevated,
+  children,
+  ...props
+}) => {
   const {styles} = useStyles(stylesheet);
 
-  return <View style={[styles.card, props, style]}>{children}</View>;
+  return (
+    <View style={[styles.card, elevated && styles.shadow, props, style]}>
+      {children}
+    </View>
+  );
 };
 
 const stylesheet = createStyleSheet(theme => ({
   card: {
-    borderRadius: theme.radius.lg,
+    borderRadius: theme.radius.md,
     borderWidth: 1,
     padding: theme.spacings.md,
     borderColor: theme.colors.border,
     backgroundColor: theme.colors.card,
+  },
 
+  shadow: {
     shadowColor: theme.colors.border,
     shadowOffset: {
       width: 0,

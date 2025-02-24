@@ -1,13 +1,14 @@
 import React, {forwardRef} from 'react';
-import {TextInput, TextInputProps} from 'react-native';
+import {TextInput, TextInputProps, TextStyle} from 'react-native';
 import {createStyleSheet, useStyles} from 'react-native-unistyles';
 import {useAppTheme} from '../hooks';
-import {LucideIcon} from 'lucide-react-native';
 import {Box} from './box';
+import {IconName, Icon} from './icon';
 
-export type TextFieldProps = TextInputProps & {
-  icon?: LucideIcon;
-};
+export type TextFieldProps = TextInputProps &
+  TextStyle & {
+    icon?: IconName;
+  };
 
 /**
  * `TextField` is a customizable text input component that supports optional icons and theming.
@@ -19,14 +20,14 @@ export type TextFieldProps = TextInputProps & {
  *
  * ```tsx
  * <TextField
- *   icon={SearchIcon}
+ *   icon="SearchIcon"
  *   placeholder="Search..."
  *   onChangeText={text => console.log(text)}
  * />
  * ```
  */
 export const TextField = forwardRef<TextInput, TextFieldProps>(
-  ({icon: Icon, ...props}, ref) => {
+  ({icon, ...props}, ref) => {
     const {theme} = useAppTheme();
     const {styles} = useStyles(stylesheet);
 
@@ -39,7 +40,7 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(
         padding={theme.spacings.md}
         backgroundColor={theme.colors.background}
         borderColor={theme.colors.border}>
-        {Icon && <Icon size={20} color={theme.colors.foreground} />}
+        {icon && <Icon name={icon} size={20} color={theme.colors.foreground} />}
         <TextInput
           ref={ref}
           style={styles.input}

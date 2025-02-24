@@ -1,6 +1,6 @@
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import React from 'react';
-import {Box, TouchableBox} from './box';
+import {Box, PressableBox} from './box';
 import {useAppSafeArea, useAppTheme} from '../hooks';
 import {Component, Dumbbell, Home, LucideIcon} from 'lucide-react-native';
 import {Typography} from './typography';
@@ -51,7 +51,7 @@ export const TabBar: React.FC<BottomTabBarProps> = ({
         const Icon = mapIcons[route.name as TabRoutes];
 
         return (
-          <TouchableBox
+          <PressableBox
             key={route.key}
             onPress={onPress}
             flex={1}
@@ -67,7 +67,7 @@ export const TabBar: React.FC<BottomTabBarProps> = ({
               opacity={isFocused ? 1 : 0.5}>
               {label as string}
             </Typography>
-          </TouchableBox>
+          </PressableBox>
         );
       })}
     </Box>

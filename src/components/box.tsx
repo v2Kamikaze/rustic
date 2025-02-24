@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  TouchableOpacity,
-  TouchableOpacityProps,
+  Pressable,
+  PressableProps,
   View,
   ViewProps,
   ViewStyle,
@@ -24,16 +24,16 @@ export const Box: React.FC<BoxProps> = ({style, children, ...props}) => {
   return <View style={[props, style]}>{children}</View>;
 };
 
-export type TouchableBoxProps = ViewProps & ViewStyle & TouchableOpacityProps;
+export type PressableBoxProps = ViewProps & ViewStyle & PressableProps;
 
-export const TouchableBox: React.FC<TouchableBoxProps> = ({
+export const PressableBox: React.FC<PressableBoxProps> = ({
   style,
   children,
   ...props
 }) => {
   return (
-    <TouchableOpacity style={[props, style]} {...props}>
+    <Pressable style={[props, style]} {...props}>
       {children}
-    </TouchableOpacity>
+    </Pressable>
   );
 };

@@ -6,40 +6,40 @@ import {Card} from './card';
 import {Typography} from './typography';
 import {Button, ButtonConfig} from './button';
 
-export type DialogProps = ModalProps & {
+export type AlertProps = ModalProps & {
   title: string;
   message?: string;
   actions: [ButtonConfig] | [ButtonConfig, ButtonConfig];
 };
 
 /**
- * `Dialog` is a modal component that displays a title, a message, and one or two action buttons.
+ * `Alert` is a modal component that displays a title, a message, and one or two action buttons.
  * It is useful for confirmations, alerts, or user interactions requiring immediate attention.
  *
  * ## Usage
  * ```tsx
- * <Dialog
- *   title="Título do dialog"
+ * <Alert
+ *   title="Título do Alert"
  *   message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae suscipit ipsum dolorem perspiciatis veniam dicta, facilis quod sequi quisquam delectus nisi dolores officiis sint harum, dolor, cum nam iste iusto."
- *   visible={openDialog}
+ *   visible={openAlert}
  *   actions={[
  *     {
  *       title: 'Confirmar',
  *       variant: 'default',
- *       onPress: () => setOpenDialog(false),
+ *       onPress: () => setOpenAlert(false),
  *       icon: MailCheck,
  *     },
  *     {
  *       title: 'Cancelar',
  *       variant: 'destructive',
- *       onPress: () => setOpenDialog(false),
+ *       onPress: () => setOpenAlert(false),
  *       icon: Ban,
  *     },
  *   ]}
  * />
  * ```
  */
-export const Dialog: React.FC<DialogProps> = ({
+export const Alert: React.FC<AlertProps> = ({
   actions,
   title,
   message,
